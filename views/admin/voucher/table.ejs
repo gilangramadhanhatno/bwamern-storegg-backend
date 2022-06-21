@@ -29,7 +29,7 @@
         <% } %>
       </td>
       <td>
-        <img src="http://localhost:3000/uploads/<%= voucher[i].thumbnail %>" alt="<%= voucher[i.name] %>" style="width: 70px" />
+        <img src="https://bwamern-storegg-backend.herokuapp.com/uploads/<%= voucher[i].thumbnail %>" alt="<%= voucher[i.name] %>" style="width: 70px" />
       </td>
       <td>
         <form action="/voucher/status/<%= voucher[i]._id %>?_method=PUT" method="post" style="display: inline-block">
