@@ -9,6 +9,7 @@ module.exports = {
       const alert = { message: alertMessage, status: alertStatus, icon: alertIcon };
 
       const bank = await Bank.find();
+      console.log(bank);
       res.render("admin/bank/view_bank", {
         bank,
         alert,
@@ -37,9 +38,9 @@ module.exports = {
   },
   actionCreate: async (req, res) => {
     try {
-      const { name, nameBank, noRekening } = req.body;
+      const { name, bankName, noRekening } = req.body;
 
-      const bank = await Bank({ name, nameBank, noRekening });
+      const bank = await Bank({ name, bankName, noRekening });
 
       await bank.save();
 
@@ -75,9 +76,9 @@ module.exports = {
   actionEdit: async (req, res) => {
     try {
       const { id } = req.params;
-      const { name, nameBank, noRekening } = req.body;
+      const { name, bankName, noRekening } = req.body;
 
-      await Bank.findOneAndUpdate({ _id: id }, { name, nameBank, noRekening });
+      await Bank.findOneAndUpdate({ _id: id }, { name, bankName, noRekening });
 
       req.flash("alertMessage", "Berhasil ubah bank");
       req.flash("alertStatus", "success");
